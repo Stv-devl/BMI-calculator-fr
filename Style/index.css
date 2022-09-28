@@ -1,0 +1,49 @@
+/**********************************************************************/
+/*setting*/
+/**********************************************************************/
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: Lato, Helvetica, sans-serif;
+  background: linear-gradient(to right, #36d1dc, #5b86e5);
+  padding: clamp(20px, 5vw, 50px) 10px 10px;
+  text-align: center;
+}
+
+/**********************************************************************/
+/*Main*/
+/**********************************************************************/
+Main {
+  width: 800px;
+  height: 300px;
+  background-color: rgb(248, 241, 241);
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  margin-bottom: 40px;
+}
+
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 10px;
+}
+
+button {
+  margin: 30px 0 20px 0;
+  cursor: pointer;
+}
+
+.number-result {
+  margin-bottom: 15px;
+}/*# sourceMappingURL=index.css.map */
