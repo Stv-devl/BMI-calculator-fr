@@ -22,7 +22,7 @@ body {
 /**********************************************************************/
 Main {
   width: 800px;
-  height: 300px;
+  height: 400px;
   background-color: rgb(248, 241, 241);
   margin: 0 auto;
   padding: 20px;
@@ -35,8 +35,13 @@ h1 {
 form {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
   gap: 10px;
+}
+
+.size-error,
+.weight-error {
+  color: rgb(189, 55, 55);
 }
 
 button {
