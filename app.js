@@ -34,6 +34,7 @@ const calculate = () => {
     weight.value = "";
     sizeerror.textContent = "";
     weighterror.textContent = "";
+    console.log(imc);
   }
 
   if (centimeter == 0) {
@@ -59,38 +60,60 @@ const calculate = () => {
   }
 };
 
-/*
+//take result from table and display
 const result = () => {
-   (imc <= 18.5) {
+  if (imc <= 18.5);
+  {
     const bname = BMIData[0].name;
+    const bcolor = BMIData[0].color;
     textresult.textContent = bname;
-  } else if (imc >= 18.5 || imc <= 25) {
+    textresult.style.color = bcolor;
+  }
+  if (imc > 18.5 && imc <= 25.0) {
     const bname2 = BMIData[1].name;
+    const bcolor2 = BMIData[1].color;
     textresult.textContent = bname2;
-  } else if (imc >= 25 || imc <= 30) {
+    textresult.style.color = bcolor2;
+  }
+  if (imc > 25 && imc <= 30.0) {
     const bname3 = BMIData[2].name;
+    const bcolor3 = BMIData[2].color;
     textresult.textContent = bname3;
+    textresult.style.color = bcolor3;
+  }
+  if (imc > 30 && imc <= 35.0) {
+    const bname4 = BMIData[3].name;
+    const bcolor4 = BMIData[3].color;
+    textresult.textContent = bname4;
+    textresult.style.color = bcolor4;
+  }
+  if (imc > 35 && imc <= 40.0) {
+    const bname5 = BMIData[4].name;
+    const bcolor5 = BMIData[4].color;
+    textresult.textContent = bname5;
+    textresult.style.color = bcolor5;
+  }
+  if (imc > 40) {
+    const bname6 = BMIData[5].name;
+    const bcolor6 = BMIData[5].color;
+    textresult.textContent = bname6;
+    textresult.style.color = bcolor6;
   }
 };
-*/
 
 //size
 size.addEventListener("change", (e) => {
   centimeter = e.target.value / 100;
   centimeter = centimeter * centimeter;
-  console.log(centimeter);
 });
 
 //weight
 weight.addEventListener("change", (e) => {
   kilogram = e.target.value;
-  console.log(kilogram);
 });
 
-//calculate IMC at click
+//calculate() and result() at click
 calculateImc.addEventListener("click", (e) => {
   calculate();
   result();
 });
-
-//result from table

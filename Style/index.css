@@ -11,6 +11,7 @@
 
 body {
   min-height: 100vh;
+  font-size: 16px;
   font-family: Lato, Helvetica, sans-serif;
   background: linear-gradient(to right, #36d1dc, #5b86e5);
   padding: clamp(20px, 5vw, 50px) 10px 10px;
@@ -22,33 +23,65 @@ body {
 /**********************************************************************/
 Main {
   width: 800px;
-  height: 400px;
-  background-color: rgb(248, 241, 241);
+  height: 417px;
+  background-color: rgb(241, 241, 241);
   margin: 0 auto;
-  padding: 20px;
+  padding: 30px;
+  border-radius: 4px;
 }
 
 h1 {
-  margin-bottom: 40px;
+  margin-bottom: 35px;
+  font-size: 2.1rem;
+  font-weight: 400;
+}
+h1 span {
+  font-weight: 900;
 }
 
 form {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  gap: 10px;
+  justify-content: center;
+  grid-template-columns: 300px 300px;
+  grid-template-rows: 20px 52px 20px;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+  row-gap: 10px;
+  text-align: left;
 }
-
-.size-error,
-.weight-error {
+form #size,
+form #weight {
+  width: 300px;
+  height: 52px;
+  border-radius: 4px;
+  border: none;
+  padding: 10px;
+  box-shadow: 0px 4px 8px 0px rgba(78, 84, 94, 0.7);
+}
+form .size-error,
+form .weight-error {
   color: rgb(189, 55, 55);
 }
 
 button {
-  margin: 30px 0 20px 0;
+  width: 200px;
+  height: 40px;
+  border: none;
+  border-radius: 8px;
+  background-color: rgb(255, 199, 44);
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 20px 0 15px 0;
   cursor: pointer;
 }
 
 .number-result {
   margin-bottom: 15px;
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+
+.text-result {
+  font-size: 1.4rem;
+  font-weight: 500;
 }/*# sourceMappingURL=index.css.map */
