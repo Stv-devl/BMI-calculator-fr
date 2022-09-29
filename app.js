@@ -16,92 +16,45 @@ const BMIData = [
   { name: "Obésité sévère", color: "crimson", range: [35, 40] },
   { name: "Obésité morbide", color: "purple", range: 40 },
 ];
+const form = document.querySelector("form");
+const inputs = document.querySelectorAll("input");
 const size = document.getElementById("size");
 const numberresult = document.querySelector(".number-result");
 const testresult = document.querySelector(".text-result");
 const sizeerror = document.querySelector(".size-error");
-const weighterror = document.querySelector(".weight-error");
 const textresult = document.querySelector(".text-result");
-let centimeter = 0;
-let kilogram = 0;
-let imc = 0;
 
+// at click start calculate()
+calculateImc.addEventListener("click", (e) => {
+  calculate();
+});
+
+//fonction calculate
 const calculate = () => {
-  if (centimeter > 0 && kilogram > 0) {
-    imc = (kilogram / centimeter).toFixed(1);
-    numberresult.textContent = imc;
-    size.value = "";
-    weight.value = "";
-    sizeerror.textContent = "";
-    weighterror.textContent = "";
-  }
+  const size = inputs[0].value;
+  const weight = inputs[1].value;
 
-  if (centimeter == 0) {
-    sizeerror.textContent = "Veuillez rentrer un chiffre ";
-    size.value = "";
-    weight.value = "";
+  if (!size || !weight || size <= 0 || weight <= 0) {
+    handleError();
+    return;
   }
-  if (kilogram == 0) {
-    weighterror.textContent = "Veuillez rentrer un chiffre ";
-    size.value = "";
-    weight.value = "";
-  }
+  const ICM = (weight / Math.pow(size / 100, 2)).toFixed(1);
+  result(ICM);
+};
+
+//fonction handleError =*> display error message
+const handleError = () => {
+  sizeerror.textContent = "Veuillez remplir les cases correctement";
 };
 
 //take result from table and display
-const result = () => {
-  if (imc <= 18.5);
-  {
-    const bname = BMIData[0].name;
-    const bcolor = BMIData[0].color;
-    textresult.textContent = bname;
-    textresult.style.color = bcolor;
-  }
-  if (imc > 18.5 && imc <= 25.0) {
-    const bname2 = BMIData[1].name;
-    const bcolor2 = BMIData[1].color;
-    textresult.textContent = bname2;
-    textresult.style.color = bcolor2;
-  }
-  if (imc > 25 && imc <= 30.0) {
-    const bname3 = BMIData[2].name;
-    const bcolor3 = BMIData[2].color;
-    textresult.textContent = bname3;
-    textresult.style.color = bcolor3;
-  }
-  if (imc > 30 && imc <= 35.0) {
-    const bname4 = BMIData[3].name;
-    const bcolor4 = BMIData[3].color;
-    textresult.textContent = bname4;
-    textresult.style.color = bcolor4;
-  }
-  if (imc > 35 && imc <= 40.0) {
-    const bname5 = BMIData[4].name;
-    const bcolor5 = BMIData[4].color;
-    textresult.textContent = bname5;
-    textresult.style.color = bcolor5;
-  }
-  if (imc > 40) {
-    const bname6 = BMIData[5].name;
-    const bcolor6 = BMIData[5].color;
-    textresult.textContent = bname6;
-    textresult.style.color = bcolor6;
-  }
+const result = (ICM) => {
+  const rank = BMIData.find((data) => {
+    if (ICM >= data.range[0] && ICM < data.range[1]) return data;
+    else if (typeof data.range === "number" && ICM >= data.range) return data;
+  });
+  numberresult.textContent = ICM;
+  numberresult.style.color = `${rank.color}`;
+  testresult.style.color = `${rank.color}`;
+  testresult.textContent = `Résultat : ${rank.name}`;
 };
-
-//size
-size.addEventListener("change", (e) => {
-  centimeter = e.target.value / 100;
-  centimeter = centimeter * centimeter;
-});
-
-//weight
-weight.addEventListener("change", (e) => {
-  kilogram = e.target.value;
-});
-
-//calculate() and result() at click
-calculateImc.addEventListener("click", (e) => {
-  calculate();
-  result();
-});
