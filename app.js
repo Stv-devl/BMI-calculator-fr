@@ -27,14 +27,13 @@ let kilogram = 0;
 let imc = 0;
 
 const calculate = () => {
-  if (centimeter >= 2 && centimeter <= 5 && kilogram >= 20 && kilogram <= 800) {
+  if (centimeter > 0 && kilogram > 0) {
     imc = (kilogram / centimeter).toFixed(1);
     numberresult.textContent = imc;
     size.value = "";
     weight.value = "";
     sizeerror.textContent = "";
     weighterror.textContent = "";
-    console.log(imc);
   }
 
   if (centimeter == 0) {
@@ -44,17 +43,6 @@ const calculate = () => {
   }
   if (kilogram == 0) {
     weighterror.textContent = "Veuillez rentrer un chiffre ";
-    size.value = "";
-    weight.value = "";
-  }
-  if (centimeter <= 2 || centimeter >= 6) {
-    sizeerror.textContent = "Veuillez rentrer un chiffre cohérent";
-    size.value = "";
-    weight.value = "";
-  }
-
-  if (kilogram <= 20 && kilogram > 900) {
-    weighterror.textContent = "Veuillez rentrer un chiffre cohérent";
     size.value = "";
     weight.value = "";
   }

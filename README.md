@@ -37,8 +37,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Github link](https://github.com/Stv-devl/Tip-calculator-app)
-- Live Site URL: [Live link]()
+- Solution URL: [Github link](https://github.com/Stv-devl/BMI-calculator-fr)
+- Live Site URL: [Live link](https://stv-devl.github.io/BMI-calculator-fr/)
 
 ## My process
 
